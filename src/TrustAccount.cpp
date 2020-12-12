@@ -7,11 +7,11 @@
 */
 TrustAccount::TrustAccount(std::string name, double balance, double bonus,
 double bonus_check, double withdraw_amount_limit,
- int withdraw_limit)
+ int withdraw_times_limit)
     :Account(name, balance), bonus{bonus}, 
     bonus_check{bonus_check},
     withdraw_amount_limit{withdraw_amount_limit},
-    withdraw_limit{withdraw_limit}{
+    withdraw_times_limit{withdraw_times_limit}{
 }
 
 /*
