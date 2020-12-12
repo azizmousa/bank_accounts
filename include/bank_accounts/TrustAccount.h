@@ -12,8 +12,8 @@ private:
     static constexpr double DEF_BONUS_CHECK = 5000;
     static constexpr double DEF_WITHDRAW_AMOUNT_LIMIT = 20;
 protected:
+    double bonus, bonus_check, withdraw_amount_limit;
     int withdraw_times_limit;
-    double bonus, withdraw_amount_limit, bonus_check;
 public:
     TrustAccount(std::string name=DEF_NAME, double balance=DEF_BALANCE, 
     double bonus=DEF_BONUS,
