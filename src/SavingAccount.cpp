@@ -25,6 +25,6 @@ bool SavingAccount::deposit(const double amount){
  * insertion operator ovlerloaded to display the saving account data
 */
 std::ostream &operator<<(std::ostream &out, const SavingAccount &saving_account){
-    out << "[Name: " <<saving_account.name << "\tBalance: "<< "\tRate: " << saving_account.rate << "]";
+    out << "[Name: " <<saving_account.name << "\tBalance: " << saving_account.balance << "\tRate: " << saving_account.rate << "]";
     return out;
 }
