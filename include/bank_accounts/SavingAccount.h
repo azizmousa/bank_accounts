@@ -7,7 +7,8 @@
 
 class SavingAccount: public Account{
 
-   friend std::ostream &operator<<(std::ostream &out, SavingAccount &saving_account);
+friend std::ostream &operator<<(std::ostream &out, const SavingAccount &saving_account);
+
 private:
     static constexpr char *DEF_ACCOUNT_NAME = const_cast<char*>("UNNAMED SAVING ACCOUNT");
     static constexpr double DEF_BALANCE = 0.0;
@@ -17,8 +18,8 @@ protected:
     double rate;
 
 public:
-    SavingAccount(std::string name=DEF_ACCOUNT_NAME, double balance=DEF_BALANCE, double rate=DEF_RATE);
-    bool deposit(double amount);
+    SavingAccount(const std::string name=DEF_ACCOUNT_NAME, const double balance=DEF_BALANCE, const double rate=DEF_RATE);
+    bool deposit(const double amount);
 
 };
 
