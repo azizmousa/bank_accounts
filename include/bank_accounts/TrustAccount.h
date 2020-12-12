@@ -9,11 +9,18 @@ private:
     static constexpr double DEF_BALANCE = 0;
     static constexpr int DEF_WITHDRAW_LIMIT = 3;
     static constexpr double DEF_BONUS = 50;
+    static constexpr double DEF_BONUS_CHECK = 5000;
+    static constexpr double DEF_WITHDRAW_AMOUNT_LIMIT = 20;
 protected:
-    int withdraw_limit;
-    double bonus;
+    int withdraw_times_limit;
+    double bonus, withdraw_amount_limit, bonus_check;
 public:
-    TrustAccount(std::string name=DEF_NAME, double balance=DEF_BALANCE, double bonus=DEF_BONUS, int withdraw_limit=DEF_WITHDRAW_LIMIT);
+    TrustAccount(std::string name=DEF_NAME, double balance=DEF_BALANCE, 
+    double bonus=DEF_BONUS,
+    double bonus_check=DEF_BONUS_CHECK, 
+    double withdraw_amount_limit=DEF_WITHDRAW_AMOUNT_LIMIT,
+    int withdraw_limit=DEF_WITHDRAW_LIMIT);
+
     bool deposit(double amount);
     bool withdraw(double amount);
 };
