@@ -18,6 +18,7 @@ public:
     bool deposit(double amount);
     bool withdraw(double amount);
     double get_balance()const;
+    std::string get_account_name()const;
 };
 
 

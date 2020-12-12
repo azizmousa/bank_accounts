@@ -40,6 +40,14 @@ double Account::get_balance()const{
 }
 
 /*
+ * std::string get_account_name()const
+ * method to get the current name
+*/
+std::string Account::get_account_name()const{
+    return this->name;
+}
+
+/*
  * std::ostream &operator<<(std::ostream &out, const Account &account)
  * insertion operator overload to write the account data
 */
