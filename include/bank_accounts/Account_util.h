@@ -11,5 +11,6 @@
 void display(const std::vector<Account*> &accounts);
 void deposit(std::vector<Account*> &accounts, double amount);
 void withdraw(std::vector<Account*> &accounts, double amount);
+void clean_memory(std::vector<Account*> &accounts);
 
 #endif //_ACCOUNT_UTIL_H

@@ -41,3 +41,15 @@ void withdraw(std::vector<Account*> &accounts, double amount){
             std::cout << acc->get_account_name() << " withdraw operation faild!" << std::endl;
     }
 }
+
+/*
+ * void clean_memory(std::vector<Account*> &accounts)
+ * method that free the memore from the raw pointers in the vector
+*/
+void clean_memory(std::vector<Account*> &accounts){
+    for(Account *acc: accounts){
+        std::cout << "deleted account: " << acc->get_account_name() << std::endl;
+        delete acc;
+    }
+        
+}

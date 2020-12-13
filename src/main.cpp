@@ -21,6 +21,11 @@ int main(int argc, char *argv[]){
     // withdraw(accounts, 2000);
     // display(accounts);
 
+    Account *acc = new TrustAccount();
+    acc->deposit(10000);
+    acc->withdraw(500);
+    std::cout << *acc << std::endl;
+    delete acc;
     // SavingAccount operations
     std::vector<Account*> saving_accounts;
     saving_accounts.push_back(new SavingAccount{});
@@ -61,6 +66,8 @@ int main(int argc, char *argv[]){
     withdraw(checking_accounts, 1000);
     display(checking_accounts);
 
-
+    clean_memory(trust_accounts);
+    clean_memory(checking_accounts);
+    clean_memory(saving_accounts);
     return 0;
 }
