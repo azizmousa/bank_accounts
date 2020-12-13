@@ -16,8 +16,22 @@ SavingAccount::SavingAccount(const std::string name, const double balance, const
  * add amount of money with the rate of interrest
 */
 bool SavingAccount::deposit(const double amount){
+    if(!deposit_assurance(amount))
+        return false; 
     double interrest = amount + (amount * (this->rate / 100));
-    return Account::deposit(interrest);
+    this->balance += interrest;
+    return true;
+}
+
+/*
+ * bool withdraw(const double amount)
+ * method to decrease the amount from the balance
+*/
+bool SavingAccount::withdraw(const double amount){
+    if(!withdraw_assurance(amount))
+        return false;
+    this->balance -= amount;
+    return true;
 }
 
 /*

@@ -19,7 +19,8 @@ protected:
 
 public:
     SavingAccount(const std::string name=DEF_ACCOUNT_NAME, const double balance=DEF_BALANCE, const double rate=DEF_RATE);
-    bool deposit(const double amount);
+    virtual bool deposit(const double amount)override;
+    virtual bool withdraw(const double amount)override;
 
 };
 
