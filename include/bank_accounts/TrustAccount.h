@@ -3,7 +3,7 @@
 
 #include "bank_accounts/Account.h"
 class TrustAccount: public Account{
-    friend std::ostream operator<<(std::ostream &out, TrustAccount &trust_account);
+    friend std::ostream &operator<<(std::ostream &out, TrustAccount &trust_account);
 private:
     static constexpr char *DEF_NAME = const_cast<char*>("UNNAMED TRUST ACCOUNT");
     static constexpr double DEF_BALANCE = 0;
