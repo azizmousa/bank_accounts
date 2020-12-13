@@ -15,7 +15,8 @@ protected:
     double fee;
 public:
     CheckingAccount(std::string name=DEF_NAME, double balance=DEF_BALANCE, double fee=DEF_FEE);
-    bool withdraw(double amount);
+    virtual bool withdraw(const double amount) override;
+    virtual bool deposit(const double amount) override;
 };
 
 #endif // _CHECKING_ACCOUNT_H

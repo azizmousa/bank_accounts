@@ -11,11 +11,30 @@ CheckingAccount::CheckingAccount(std::string name, double balance, double fee)
 
 /*
  * bool withdraw(double amount)
- * function that apply fee on every withdraw transaction 
+ * method to apply fee on every withdraw transaction 
 */
-bool CheckingAccount::withdraw(double amount){
-    amount += this->fee;
-    return Account::withdraw(amount); 
+bool CheckingAccount::withdraw(const double amount){
+    if(!withdraw_assurance(amount))
+        return false;
+
+    double feed_amount = amount + this->fee;
+
+    if(!withdraw_assurance(feed_amount))
+        return false;
+
+    this->balance -= feed_amount;
+    return true; 
+}
+
+/*
+ * bool deposit(double amount)
+ * method to deposit amount to the current balance
+*/
+bool CheckingAccount::deposit(const double amount){
+    if(!deposit_assurance(amount))
+        return false;
+    this->balance += amount;
+    return true;
 }
 
 /*
