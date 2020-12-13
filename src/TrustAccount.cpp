@@ -35,3 +35,16 @@ bool TrustAccount::withdraw(double amount){
     this->withdraw_times_limit--;
     return Account::withdraw(amount);
 }
+
+
+/*
+ * std::ostream &operator<<(std::ostream &out, TrustAccount &trust_account)
+ * inserttion operation overload for TrustAccount class
+*/
+std::ostream &operator<<(std::ostream &out, TrustAccount &trust_account){
+    out << "[Name: " << trust_account.name 
+    << ", Balance: " << trust_account.balance 
+    << ", Withdraws Left:" << trust_account.withdraw_times_limit 
+    << "]"; 
+    return out;
+}
