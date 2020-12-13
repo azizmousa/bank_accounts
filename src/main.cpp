@@ -1,35 +1,64 @@
 #include <iostream>
 #include <iomanip>
+#include <vector>
 
 #include "bank_accounts/Account.h"
 #include "bank_accounts/SavingAccount.h"
+#include "bank_accounts/Account_util.h"
+#include "bank_accounts/CheckingAccount.h"
+#include "bank_accounts/TrustAccount.h"
+
 int main(int argc, char *argv[]){
-    Account ac1;
-    Account lary_account{"lary", 100};
-    Account moe_accoutn{"moe", 200};
-    SavingAccount sac1;
-    SavingAccount sup_sv_accoutn{"superman", 1000.0, 4};
-    SavingAccount bat_sv_accoutn{"batman", 2000000.0}; 
+    // Account operations
+    std::vector<Account> accounts;
+    accounts.push_back(Account{});
+    accounts.push_back(Account{"user1"});
+    accounts.push_back(Account{"user2", 1000});
 
-    sup_sv_accoutn.deposit(1000);
-    sup_sv_accoutn.withdraw(100);
+    display(accounts);
+    deposit(accounts, 1000);
+    display(accounts);
+    withdraw(accounts, 2000);
+    display(accounts);
 
-    bat_sv_accoutn.deposit(3000);
-    bat_sv_accoutn.withdraw(9000);
+    // SavingAccount operations
+    std::vector<SavingAccount> saving_accounts;
+    saving_accounts.push_back(SavingAccount{});
+    saving_accounts.push_back(SavingAccount{"saving user1", 2000});
+    saving_accounts.push_back(SavingAccount{"saving user2", 1000, 0.8});
 
-    lary_account.deposit(200);
-    moe_accoutn.withdraw(50);
+    display(saving_accounts);
+    deposit(saving_accounts, 1000);
+    display(saving_accounts);
+    withdraw(saving_accounts, 2000);
+    display(saving_accounts);
 
-    std::cout.precision(2);
-    std::cout << std::fixed;
+    // CheckingAccount operations
+    std::vector<CheckingAccount> checking_accounts;
+    checking_accounts.push_back(CheckingAccount{});
+    checking_accounts.push_back(CheckingAccount{"Checking user1"});
+    checking_accounts.push_back(CheckingAccount{"Checking user2", 1000});
 
-    std::cout << ac1 << std::endl;
-    std::cout << lary_account << std::endl;
-    std::cout << moe_accoutn << std::endl;
+    display(checking_accounts);
+    deposit(checking_accounts, 1000);
+    display(checking_accounts);
+    withdraw(checking_accounts, 2000);
+    display(checking_accounts);
 
-    std::cout << sac1 << std::endl;
-    std::cout << sup_sv_accoutn << std::endl;
-    std::cout << bat_sv_accoutn << std::endl;
+    // TrustAccount operations
+    std::vector<TrustAccount> trust_accounts;
+    trust_accounts.push_back(TrustAccount{});
+    trust_accounts.push_back(TrustAccount{"trust user1"});
+    trust_accounts.push_back(TrustAccount{"trust user2", 1000});
 
+    display(trust_accounts);
+    deposit(trust_accounts, 6000);
+    display(trust_accounts);
+    withdraw(trust_accounts, 2000);
+    withdraw(trust_accounts, 100);
+    withdraw(trust_accounts, 100);
+    withdraw(trust_accounts, 100);
+    withdraw(trust_accounts, 100);
+    display(trust_accounts);
     return 0;
 }
