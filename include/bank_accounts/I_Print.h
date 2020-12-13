@@ -7,6 +7,6 @@ class I_Print{
     friend std::ostream &operator<<(std::ostream &out, I_Print &i_print);
 public:
     virtual ~I_Print() = default;
-    virtual void print(std::ostream &out);
+    virtual void print(std::ostream &out)const;
 };
 #endif//_I_PRINT_H
