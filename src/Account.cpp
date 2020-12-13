@@ -66,11 +66,11 @@ bool Account::deposit_assurance(double amount)const{
         return false;
     return true;
 }
-// /*
-//  * std::ostream &operator<<(std::ostream &out, const Account &account)
-//  * insertion operator overload to write the account data
-// */
-// std::ostream &operator<<(std::ostream &out, const Account &account){
-//     out << "[Name: " << account.name << "\tBalance: " << account.balance << "]";
-//     return out;
-// }
+/*
+ * std::ostream &operator<<(std::ostream &out, const Account &account)
+ * insertion operator overload to write the account data
+*/
+std::ostream &operator<<(std::ostream &out, const Account &account){
+    account.print(out); 
+    return out;
+}

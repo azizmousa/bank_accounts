@@ -22,10 +22,10 @@ int main(int argc, char *argv[]){
     // display(accounts);
 
     // SavingAccount operations
-    std::vector<SavingAccount> saving_accounts;
-    saving_accounts.push_back(SavingAccount{});
-    saving_accounts.push_back(SavingAccount{"saving user1", 2000});
-    saving_accounts.push_back(SavingAccount{"saving user2", 1000, 0.8});
+    std::vector<Account*> saving_accounts;
+    saving_accounts.push_back(new SavingAccount{});
+    saving_accounts.push_back(new SavingAccount{"saving user1", 2000});
+    saving_accounts.push_back(new SavingAccount{"saving user2", 1000, 0.8});
 
     display(saving_accounts);
     deposit(saving_accounts, 1000);
@@ -33,23 +33,11 @@ int main(int argc, char *argv[]){
     withdraw(saving_accounts, 2000);
     display(saving_accounts);
 
-    // CheckingAccount operations
-    std::vector<CheckingAccount> checking_accounts;
-    checking_accounts.push_back(CheckingAccount{});
-    checking_accounts.push_back(CheckingAccount{"Checking user1"});
-    checking_accounts.push_back(CheckingAccount{"Checking user2", 1000});
-
-    display(checking_accounts);
-    deposit(checking_accounts, 1000);
-    display(checking_accounts);
-    withdraw(checking_accounts, 1000);
-    display(checking_accounts);
-
-    // // TrustAccount operations
-    std::vector<TrustAccount> trust_accounts;
-    trust_accounts.push_back(TrustAccount{});
-    trust_accounts.push_back(TrustAccount{"trust user1"});
-    trust_accounts.push_back(TrustAccount{"trust user2", 1000});
+     // // // TrustAccount operations
+    std::vector<Account*> trust_accounts;
+    trust_accounts.push_back(new TrustAccount{});
+    trust_accounts.push_back(new TrustAccount{"trust user1"});
+    trust_accounts.push_back(new TrustAccount{"trust user2", 1000});
 
     display(trust_accounts);
     deposit(trust_accounts, 6000);
@@ -60,5 +48,19 @@ int main(int argc, char *argv[]){
     withdraw(trust_accounts, 100);
     withdraw(trust_accounts, 100);
     display(trust_accounts);
+    
+    // CheckingAccount operations
+    std::vector<Account*> checking_accounts;
+    checking_accounts.push_back(new CheckingAccount{});
+    checking_accounts.push_back(new CheckingAccount{"Checking user1"});
+    checking_accounts.push_back(new CheckingAccount{"Checking user2", 1000});
+
+    display(checking_accounts);
+    deposit(checking_accounts, 1000);
+    display(checking_accounts);
+    withdraw(checking_accounts, 1000);
+    display(checking_accounts);
+
+
     return 0;
 }

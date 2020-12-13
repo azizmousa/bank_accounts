@@ -6,7 +6,7 @@
 #include "bank_accounts/I_Print.h"
 
 class Account: I_Print{
-    // friend std::ostream &operator<<(std::ostream &out, const Account &account);
+    friend std::ostream &operator<<(std::ostream &out, const Account &account);
 private:
     static constexpr char *DEF_NAME = const_cast<char*>("UNNAMED ACCOUNT");
     static constexpr double DEF_BALANCE = 0.0;
@@ -24,7 +24,7 @@ public:
     virtual bool deposit_assurance(const double amount) const final;
     virtual double get_balance()const final;
     virtual std::string get_account_name()const final;
-    virtual void print(std::ostream &out) const override;
+    virtual void print(std::ostream &out) const override = 0;
 };
 
 

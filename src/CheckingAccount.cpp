@@ -38,10 +38,9 @@ bool CheckingAccount::deposit(const double amount){
 }
 
 /*
- * std::ostream &operator<<(std::ostream &out, CheckingAccount &checking_account)
- * insertion operator overloaded to print out the CheckingAccount data
+ * void print(std::ostream &out)
+ * function that create the ostream object to print the class data
 */
-std::ostream &operator<<(std::ostream &out, CheckingAccount &checking_account){
-    out << "[" << checking_account.name << "\tBalance: " << checking_account.balance << "\tfee: " << checking_account.fee << "]";
-    return out;
+void CheckingAccount::print(std::ostream &out)const{
+    out << "[" << this->name << "\tBalance: " << this->balance << "\tfee: " << this->fee << "]";
 }

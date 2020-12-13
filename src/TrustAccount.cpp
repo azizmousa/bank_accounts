@@ -2,13 +2,12 @@
 #include "bank_accounts/TrustAccount.h"
 
 /*
- * TrustAccount(std::string name, double balance, double bonus, int withdraw_rate)
+ * TrustAccount(std::string name, double balance, double bonus, double bonus_check, double withdraw_amount_limit,int withdraw_times_limit)
  * class initialilzer
 */
-TrustAccount::TrustAccount(std::string name, double balance, double bonus,
-double bonus_check, double withdraw_amount_limit,
- int withdraw_times_limit)
-    :Account(name, balance), bonus{bonus}, 
+TrustAccount::TrustAccount(std::string name, double balance, double bonus, double bonus_check, 
+double withdraw_amount_limit, int withdraw_times_limit)
+    : Account(name, balance), bonus{bonus}, 
     bonus_check{bonus_check},
     withdraw_amount_limit{withdraw_amount_limit},
     withdraw_times_limit{withdraw_times_limit}{
@@ -47,13 +46,12 @@ bool TrustAccount::withdraw(const double amount){
 
 
 /*
- * std::ostream &operator<<(std::ostream &out, TrustAccount &trust_account)
- * inserttion operation overload for TrustAccount class
+ * void print(std::ostream &out)
+ * function that create the ostream object to print the class data
 */
-std::ostream &operator<<(std::ostream &out, TrustAccount &trust_account){
-    out << "[Name: " << trust_account.name 
-    << ", Balance: " << trust_account.balance 
-    << ", Withdraws Left:" << trust_account.withdraw_times_limit 
+void TrustAccount::print(std::ostream &out)const{
+    out << "[Name: " << this->name 
+    << ", Balance: " << this->balance 
+    << ", Withdraws Left:" << this->withdraw_times_limit 
     << "]"; 
-    return out;
 }

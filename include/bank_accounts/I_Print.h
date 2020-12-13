@@ -4,9 +4,8 @@
 #include<iostream>
 
 class I_Print{
-    friend std::ostream &operator<<(std::ostream &out, I_Print &i_print);
 public:
-    virtual ~I_Print() = default;
-    virtual void print(std::ostream &out)const;
+    virtual ~I_Print(){} 
+    virtual void print(std::ostream &out)const = 0;
 };
 #endif//_I_PRINT_H

@@ -39,6 +39,13 @@ bool SavingAccount::withdraw(const double amount){
  * insertion operator ovlerloaded to display the saving account data
 */
 std::ostream &operator<<(std::ostream &out, const SavingAccount &saving_account){
-    out << "[Name: " <<saving_account.name << "\tBalance: " << saving_account.balance << "\tRate: " << saving_account.rate << "]";
     return out;
+}
+
+/*
+ * void print(std::ostream &out)
+ * function that create the ostream object to print the class data
+*/
+void SavingAccount::print(std::ostream &out)const{
+    out << "[Name: " <<this->name << "\tBalance: " << this->balance << "\tRate: " << this->rate << "]";
 }
