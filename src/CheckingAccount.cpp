@@ -15,7 +15,7 @@ CheckingAccount::CheckingAccount(std::string name, double balance, double fee)
 */
 bool CheckingAccount::withdraw(double amount){
     amount += this->fee;
-    return this->withdraw(amount); 
+    return Account::withdraw(amount); 
 }
 
 /*
