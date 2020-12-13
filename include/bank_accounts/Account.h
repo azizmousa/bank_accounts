@@ -4,7 +4,7 @@
 #include <string>
 
 class Account{
-    friend std::ostream &operator<<(std::ostream &out, const Account &account);
+    // friend std::ostream &operator<<(std::ostream &out, const Account &account);
 private:
     static constexpr char *DEF_NAME = const_cast<char*>("UNNAMED ACCOUNT");
     static constexpr double DEF_BALANCE = 0.0;
@@ -15,10 +15,13 @@ protected:
 public:
 
     Account(std::string name=DEF_NAME, double balance=DEF_BALANCE);
-    bool deposit(double amount);
-    bool withdraw(double amount);
-    double get_balance()const;
-    std::string get_account_name()const;
+    virtual ~Account(){}
+    virtual bool deposit(const double amount) = 0;
+    virtual bool withdraw(const double amount) = 0;
+    virtual bool withdraw_assurance(const double amount) const final;
+    virtual bool deposit_assurance(const double amount) const final;
+    virtual double get_balance()const final;
+    virtual std::string get_account_name()const final;
 };
 
 
