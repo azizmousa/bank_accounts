@@ -21,8 +21,8 @@ public:
     double withdraw_amount_limit=DEF_WITHDRAW_AMOUNT_LIMIT,
     int withdraw_limit=DEF_WITHDRAW_LIMIT);
 
-    bool deposit(double amount);
-    bool withdraw(double amount);
+    virtual bool deposit(const double amount)override;
+    virtual bool withdraw(const double amount)override;
 };
 
 #endif //_TRUST_ACCOUNT_H

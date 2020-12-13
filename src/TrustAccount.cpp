@@ -15,25 +15,34 @@ double bonus_check, double withdraw_amount_limit,
 }
 
 /*
- * bool deposit(double amount)
+ * bool deposit(const double amount)
  * method to deposit money to the account with a bonus
 */
-bool TrustAccount::deposit(double amount){
+bool TrustAccount::deposit(const double amount){
+    if(!deposit_assurance(amount))
+        return false;
+
+    double bonuses = amount;
     if(amount > this->bonus_check)
-        amount += this->bonus;
-    return Account::deposit(amount);
+         bonuses += this->bonus;
+    this->balance += bonuses;
+    return true;
 }
 
 /*
- * bool withdraw(double amount)
+ * bool withdraw(const double amount)
  * method to withdraw money with checking limits
 */
-bool TrustAccount::withdraw(double amount){
+bool TrustAccount::withdraw(const double amount){
+    if(!withdraw_assurance(amount))
+        return false;
+
     double amount_limit = (withdraw_amount_limit/100) * this->balance;
     if(amount > amount_limit || this->withdraw_times_limit == 0)
         return false;
+    this->balance -= amount;
     this->withdraw_times_limit--;
-    return Account::withdraw(amount);
+    return true;
 }
 
 
