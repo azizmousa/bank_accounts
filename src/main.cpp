@@ -10,16 +10,16 @@
 
 int main(int argc, char *argv[]){
     // Account operations
-    std::vector<Account> accounts;
-    accounts.push_back(Account{});
-    accounts.push_back(Account{"user1"});
-    accounts.push_back(Account{"user2", 1000});
+    // std::vector<Account> accounts;
+    // accounts.push_back(Account{});
+    // accounts.push_back(Account{"user1"});
+    // accounts.push_back(Account{"user2", 1000});
 
-    display(accounts);
-    deposit(accounts, 1000);
-    display(accounts);
-    withdraw(accounts, 2000);
-    display(accounts);
+    // display(accounts);
+    // deposit(accounts, 1000);
+    // display(accounts);
+    // withdraw(accounts, 2000);
+    // display(accounts);
 
     // SavingAccount operations
     std::vector<SavingAccount> saving_accounts;
@@ -42,10 +42,10 @@ int main(int argc, char *argv[]){
     display(checking_accounts);
     deposit(checking_accounts, 1000);
     display(checking_accounts);
-    withdraw(checking_accounts, 2000);
+    withdraw(checking_accounts, 1000);
     display(checking_accounts);
 
-    // TrustAccount operations
+    // // TrustAccount operations
     std::vector<TrustAccount> trust_accounts;
     trust_accounts.push_back(TrustAccount{});
     trust_accounts.push_back(TrustAccount{"trust user1"});
