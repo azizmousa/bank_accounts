@@ -1,12 +1,14 @@
+#include <exception>
 
 #include "bank_accounts/Account.h"
-
+#include "bank_accounts/IllegalBalanceException.h"
 /*
  * Account(std::string name, double balance)
  * account constructor
 */
 Account::Account(std::string name, double balance): name{name}, balance{balance}{
-
+    if(this->balance < 0)
+        throw IllegalBalanceException("Account base: illegal balance exception");
 }
 
 // /*
